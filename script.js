@@ -51,3 +51,33 @@ window.addEventListener('click', (event) => {
         }, 500);
     }
 });
+
+// Efeito Mágico: Pétalas de Rosa caindo
+function createPetals() {
+    const container = document.createElement('div');
+    container.id = 'petals-container';
+    document.body.appendChild(container);
+
+    // Cria 25 pétalas na tela
+    for (let i = 0; i < 25; i++) {
+        const petal = document.createElement('div');
+        petal.classList.add('petal');
+        
+        // Propriedades aleatórias para tamanho, posição e velocidade
+        const size = Math.random() * 10 + 10; // entre 10px e 20px
+        const left = Math.random() * 100; // 0 a 100vw
+        const duration = Math.random() * 5 + 5; // 5s a 10s
+        const delay = Math.random() * 5; // 0 a 5s
+
+        petal.style.width = `${size}px`;
+        petal.style.height = `${size}px`;
+        petal.style.left = `${left}vw`;
+        petal.style.animationDuration = `${duration}s`;
+        petal.style.animationDelay = `${delay}s`;
+
+        container.appendChild(petal);
+    }
+}
+
+// Inicia as pétalas assim que a página carrega
+createPetals();
